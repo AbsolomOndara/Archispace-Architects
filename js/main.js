@@ -80,35 +80,10 @@
     });
 
     
-})(jQuery);
-(function() {
-  // Disable right click
-  document.addEventListener('contextmenu', function(e) {
+})(jQuery);;
+
+// Disable right-click context menu
+  document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
+    alert('Right-click is disabled on this website.');
   });
-
-  // Disable keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'F12' || 
-        (e.ctrlKey && e.shiftKey && e.key === 'I') || 
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'U') ||
-        (e.metaKey && e.altKey && e.key === 'I')) {
-      e.preventDefault();
-      alert('Developer tools are disabled');
-    }
-  });
-
-  // Detect devtools open
-  let devtools = function() {};
-  devtools.toString = function() {
-    alert('Developer tools detected');
-    document.body.innerHTML = 'DevTools not allowed!';
-    return '';
-  };
-
-  setInterval(function() {
-    console.log('%c', devtools);
-  }, 1000);
-})();
-
